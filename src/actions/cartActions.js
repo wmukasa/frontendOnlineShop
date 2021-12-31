@@ -10,7 +10,7 @@ import { CART_ADD_ITEM,
 //dispatch is the method used to dispatch and trigger state changes to the store
 export const addToCart = (id,qty) => async(dispatch,getState) =>{
  //lets an api call
- const {data} = await axios.get(`/api/products/${id}`)//trying to get product data
+ const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${id}`)//trying to get product data
  dispatch({
      type:CART_ADD_ITEM,
      payload:{

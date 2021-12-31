@@ -49,7 +49,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
             }
             const { data } = await axios.post(
                 //we use our request as post
-                `/api/orders/add/`,
+                `${process.env.REACT_APP_API_URL}/api/orders/add/`,
                 //we have to pass in our user object here
                 order,//we pass in order as the actual method
                 config     
@@ -95,7 +95,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         }
         const { data } = await axios.get(
                     //we use our request as post
-            `/api/orders/${id}/`,
+            `${process.env.REACT_APP_API_URL}/api/orders/${id}/`,
                     //we have to pass in our user object here
             config     
             )
@@ -134,7 +134,7 @@ try {
     }
     const { data } = await axios.put(
                 //we use our request as post
-        `/api/orders/${id}/pay/`,
+        `${process.env.REACT_APP_API_URL}/api/orders/${id}/pay/`,
         paymentResult,
                 //we have to pass in our user object here
         config     
@@ -175,7 +175,7 @@ try {
     }
     const { data } = await axios.put(
                 //we use our request as post
-        `/api/orders/${order._id}/deliver/`,
+        `${process.env.REACT_APP_API_URL}/api/orders/${order._id}/deliver/`,
         {},
                 //we have to pass in our user object here
         config     
@@ -214,7 +214,7 @@ try {
     }
     const { data } = await axios.get(
                 //we use our request as post
-        `/api/orders/myorders/`,
+        `${process.env.REACT_APP_API_URL}/api/orders/myorders/`,
                 //we have to pass in our user object here
         
         config     
@@ -254,7 +254,7 @@ try {
     }
     const { data } = await axios.get(
                 //we use our request as post
-        `/api/orders/`,
+        `${process.env.REACT_APP_API_URL}/api/orders/`,
                 //we have to pass in our user object here
         
         config     

@@ -35,7 +35,7 @@ export const listProducts = (keyword='') => async(dispatch)=>{
 
         try{
             dispatch({type:PRODUCT_LIST_REQUEST})
-            const {data} = await axios.get(`/api/products${keyword}`) 
+            const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products${keyword}`) 
             dispatch({
                 type:PRODUCT_LIST_SUCCESS,
                 payload:data
@@ -55,7 +55,7 @@ export const listProducts = (keyword='') => async(dispatch)=>{
 
     try{
         dispatch({type:PRODUCT_DETAILS_REQUEST})
-        const {data} = await axios.get(`/api/products/${id}`) 
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${id}`) 
         dispatch({
             type:PRODUCT_DETAILS_SUCCESS,
             payload:data
@@ -89,7 +89,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `/api/products/delete/${id}/`,
+            `${process.env.REACT_APP_API_URL}/api/products/delete/${id}/`,
             config
         )
 
@@ -127,7 +127,7 @@ export const createProduct = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/products/create/`,
+            `${process.env.REACT_APP_API_URL}/api/products/create/`,
             //because we not sending data from our form, we leave it empty
             {},
             config
@@ -169,7 +169,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/products/update/${product._id}/`,
+            `${process.env.REACT_APP_API_URL}/api/products/update/${product._id}/`,
             //because we not sending data from our form, we leave it empty
             product,
             config
@@ -213,7 +213,7 @@ export const createProductReview = (productId,review) => async (dispatch, getSta
         }
 
         const { data } = await axios.post(
-            `/api/products/${productId}/reviews/`,
+            `${process.env.REACT_APP_API_URL}/api/products/${productId}/reviews/`,
             //because we not sending data from our form, we leave it empty
             review,
             config
@@ -238,7 +238,7 @@ export const listTopProducts = (keyword='') => async(dispatch)=>{
 
     try{
         dispatch({type:PRODUCT_TOP_REQUEST})
-        const {data} = await axios.get(`/api/products/top/`) 
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/top/`) 
         dispatch({
             type:PRODUCT_TOP_SUCCESS,
             payload:data

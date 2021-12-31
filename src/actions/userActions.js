@@ -53,7 +53,7 @@ export const login =(email,password) => async (dispatch) =>{
             }
         }
         const {data} = await axios.post(
-            '/api/users/login',
+            `${process.env.REACT_APP_API_URL}/api/users/login`,
             {'username':email,'password':password},
             config
             )
@@ -97,7 +97,7 @@ export const register =(name,email,password) => async (dispatch) =>{
             }
         }
         const {data} = await axios.post(
-            '/api/users/register/',
+            `${process.env.REACT_APP_API_URL}/api/users/register/`,
             {'name':name,'email':email,'password':password},
             config
             )
@@ -138,7 +138,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
             }      
         }
         const { data } = await axios.get(
-            `/api/users/${id}/`,
+            `${process.env.REACT_APP_API_URL}/api/users/${id}/`,
             config     
         )
         dispatch({
@@ -174,7 +174,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         }
         const { data } = await axios.put(
             //we use our request as put
-            `/api/users/profile/update/`,
+            `${process.env.REACT_APP_API_URL}/api/users/profile/update/`,
             //we have to pass in our user object here
             user,
             config     
@@ -219,7 +219,7 @@ export const listUsers = () => async (dispatch, getState) => {
             }
             const { data } = await axios.get(
                 //we use our request as put
-                `/api/users/`,
+                `${process.env.REACT_APP_API_URL}/api/users/`,
                 //we have to pass in our user object here
                 
                 config     
@@ -258,7 +258,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
                 }
                 const { data } = await axios.delete(
                     //we use our request as put
-                    `/api/users/delete/${id}/`,
+                    `${process.env.REACT_APP_API_URL}/api/users/delete/${id}/`,
                     //we have to pass in our user object here
                     
                     config     
@@ -296,7 +296,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/users/update/${user._id}/`,
+            `${process.env.REACT_APP_API_URL}/api/users/update/${user._id}/`,
             user,
             config
         )
