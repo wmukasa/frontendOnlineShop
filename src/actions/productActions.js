@@ -4,6 +4,21 @@ import {
     PRODUCT_LIST_SUCCESS,
     PRODUCT_LIST_FAIL,
 
+    // PRODUCT_LISTWITHOUTPAGE_REQUEST,
+    // PRODUCT_LISTWITHOUTPAGE_SUCCESS,
+    // PRODUCT_LISTWITHOUTPAGE_FAIL,
+    myCATEGORY_REQUEST,
+    myCATEGORY_SUCCESS,
+    myCATEGORY_FAIL,
+    
+    CATEGORY_REQUEST,
+    CATEGORY_SUCCESS,
+    CATEGORY_FAIL,
+
+    CATEGORY_ThroREQUEST,
+    CATEGORY_ThroSUCCESS,
+    CATEGORY_ThroFAIL,
+    
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
@@ -35,7 +50,8 @@ export const listProducts = (keyword='') => async(dispatch)=>{
 
         try{
             dispatch({type:PRODUCT_LIST_REQUEST})
-            const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products${keyword}`) 
+            const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products${keyword}`)
+            // const {data} = await axios.get('http://localhost:8000/api/products${keyword}')  
             dispatch({
                 type:PRODUCT_LIST_SUCCESS,
                 payload:data
@@ -50,6 +66,89 @@ export const listProducts = (keyword='') => async(dispatch)=>{
             })
         }
  }
+
+//  export const listProductwithoutPage = (keyword='') => async(dispatch)=>{
+
+//     try{
+//         dispatch({type:PRODUCT_LISTWITHOUTPAGE_REQUEST})
+//         const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/listProducts${keyword}`) 
+//         // const {data} = await axios.get('http://localhost:8000/api/products/listProducts${keyword}')  
+//         dispatch({
+//             type:PRODUCT_LISTWITHOUTPAGE_SUCCESS,
+//             payload:data
+//         })
+
+//     }catch(error){
+//         dispatch({
+//             type:PRODUCT_LISTWITHOUTPAGE_FAIL,
+//             payload:error.response && error.response.data.detail
+//                 ?error.response.data.detail
+//                 :error.message,
+//         })
+//     }
+// }
+
+export const myCategory = (category) => async(dispatch)=>{
+
+    try{
+        dispatch({type:myCATEGORY_REQUEST})
+        console.log("myCategory", category);
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/categoryProducts/${category}/`
+        ) 
+        dispatch({
+            type:myCATEGORY_SUCCESS,
+            payload:data
+        })
+
+    }catch(error){
+        dispatch({
+            type:myCATEGORY_FAIL,
+            payload:error.response && error.response.data.detail
+                ?error.response.data.detail
+                :error.message,
+        })
+    }
+}
+
+export const categoryPage = () => async(dispatch)=>{
+
+    try{
+        dispatch({type:CATEGORY_REQUEST})
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/categoryBlouse/`) 
+        dispatch({
+            type:CATEGORY_SUCCESS,
+            payload:data
+        })
+
+    }catch(error){
+        dispatch({
+            type:CATEGORY_FAIL,
+            payload:error.response && error.response.data.detail
+                ?error.response.data.detail
+                :error.message,
+        })
+    }
+}
+
+export const categoryThrowOn = () => async(dispatch)=>{
+
+    try{
+        dispatch({type:CATEGORY_ThroREQUEST})
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/categoryThrowOn/`) 
+        dispatch({
+            type:CATEGORY_ThroSUCCESS,
+            payload:data
+        })
+
+    }catch(error){
+        dispatch({
+            type:CATEGORY_ThroFAIL,
+            payload:error.response && error.response.data.detail
+                ?error.response.data.detail
+                :error.message,
+        })
+    }
+}
 
  export const listProductDetails = (id) => async(dispatch)=>{
 

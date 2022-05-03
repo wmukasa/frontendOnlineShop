@@ -6,6 +6,8 @@ import './index.css';
 //import './slick.css';
 //import './slick-theme.css';
 //import './font-awesome.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

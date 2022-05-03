@@ -16,6 +16,11 @@ import UserListScreen from './screens/UserListScreen'
 import UserEditScreen from './screens/UserEditScreen' 
 import ProductListScreen from './screens/ProductListScreen' 
 import ProductEditScreen from './screens/ProductEditScreen'
+import BlouseCategoryScreen from './screens/BlouseCategoryScreen'
+import ThrowOnCategoryScreen from './screens/ThrowOnCategoryScreen'
+import AllCategoryScreen from './screens/AllCategoryScreen'
+import DressScreen from './screens/DressScreen'
+import T_shirtScreen from './screens/T_shirtScreen'
 import OrderListScreen from './screens/OrderListScreen' 
 function App() {
   return (
@@ -40,6 +45,14 @@ function App() {
 
           <Route path='/admin/productlist' component={ProductListScreen}/>
           <Route path='/admin/product/:id/edit' component={ProductEditScreen}/> 
+
+          <Route path ='/categoryBlouse' component={BlouseCategoryScreen}/>
+          <Route path ='/categoryThrowOn' component={ThrowOnCategoryScreen}/>
+
+          <Route path='/categoryProducts' component={AllCategoryScreen}/>
+          <Route path ='/categoryDress' component={DressScreen}/>
+          
+          <Route path='/categoryTshirts' component={T_shirtScreen}/>
           <Route path='/admin/orderlist' component={OrderListScreen}/>  
         </Container>
       </main>

@@ -18,11 +18,20 @@ function ProductCarousel() {
         :error//else we check if we have an error
         ? <Message variant=''>{error}</Message>
         :(
-            <Carousel pause='hover' className='bg-dark'>
-                { products.map(product =>(//we map through products
+            <Carousel pause='hover' 
+            //  style={{backgroundColor:"#2E8B57"}}
+            
+             style={{ 
+                //backgroundImage: `url(${'/build/images/shoppingClothing11.jpg'})`,
+                backgroundImage:`url(${"staticfiles/images/shoppingClothing11.jpg"})`,
+                backgroundRepeat: 'no-repeat',
+                
+                }}>
+             
+                { products.map(product =>(//we map through products the color was bg-dark
                     <Carousel.Item key={product._id}>
                         {/* react requires a key  */}
-                        <Link to={`/product/${product._id}`}>
+                        <Link to={`/products/${product._id}`}>
                             <Image src={product.image} alt={product.name} fluid/>
                             <Carousel.Caption className='carousel.caption'>
                                 <h4>{product.name}({product.price}/=)</h4>

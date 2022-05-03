@@ -3,6 +3,22 @@ import {
     PRODUCT_LIST_SUCCESS,
     PRODUCT_LIST_FAIL,
 
+    // PRODUCT_LISTWITHOUTPAGE_REQUEST,
+    // PRODUCT_LISTWITHOUTPAGE_SUCCESS,
+    // PRODUCT_LISTWITHOUTPAGE_FAIL,
+
+    myCATEGORY_REQUEST,
+    myCATEGORY_SUCCESS,
+    myCATEGORY_FAIL,
+
+    CATEGORY_REQUEST,
+    CATEGORY_SUCCESS,
+    CATEGORY_FAIL,
+
+    CATEGORY_ThroREQUEST,
+    CATEGORY_ThroSUCCESS,
+    CATEGORY_ThroFAIL,
+
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
@@ -47,7 +63,65 @@ export const productListReducer = (state = {products:[]},action) =>{
         default:
             return state
     }
+}
+// export const productListwithoutpageReducer = (state = {productlist:[]},action) =>{
+//     switch(action.type){
+//         case PRODUCT_LISTWITHOUTPAGE_REQUEST:
+//             return{ loading: true,productlist:[]}
 
+//         case PRODUCT_LISTWITHOUTPAGE_SUCCESS:
+//             return{ loading: false,
+//                 productlist:action.payload.productlist,
+//             }
+//         case PRODUCT_LISTWITHOUTPAGE_FAIL:
+//             return{ loading: false,error:action.payload}
+//         default:
+//             return state
+//     }
+// }
+export const categoryAllReducer = (state = {products:[]},action) =>{
+    switch(action.type){
+        case myCATEGORY_REQUEST:
+            return{ loading: true,products:[]}
+
+        case myCATEGORY_SUCCESS:
+            return{ loading: false, products:action.payload}
+
+        case myCATEGORY_FAIL:
+            return{ loading: false,error:action.payload}
+        default:
+            return state
+    }
+}
+
+export const categoryBlouseReducer = (state = {products:[]},action) =>{
+    switch(action.type){
+        case CATEGORY_REQUEST:
+            return{ loading: true,products:[]}
+
+        case CATEGORY_SUCCESS:
+            return{ loading: false, products:action.payload}
+
+        case CATEGORY_FAIL:
+            return{ loading: false,error:action.payload}
+        default:
+            return state
+    }
+}
+export const categoryThrowReducer = (state = {products:[]},action) =>{
+
+    switch(action.type){
+        case CATEGORY_ThroREQUEST:
+            return{ loading: true,products:[]}
+
+        case CATEGORY_ThroSUCCESS:
+            return{ loading: false, products:action.payload}
+
+        case CATEGORY_ThroFAIL:
+            return{ loading: false,error:action.payload}
+        default:
+            return state
+    }
 }
 export const productDetailsReducer = (state = {product:{reviews:[]}},action) =>{
     switch(action.type){
@@ -60,9 +134,7 @@ export const productDetailsReducer = (state = {product:{reviews:[]}},action) =>{
         default:
             return state
     }
-
 }
-
 export const productDeleteReducer = (state = {}, action) => {
     switch (action.type) {
         case PRODUCT_DELETE_REQUEST:
@@ -78,7 +150,6 @@ export const productDeleteReducer = (state = {}, action) => {
             return state
     }
 }
-
 export const productCreateReducer = (state = {}, action) => {
     switch (action.type) {
         case PRODUCT_CREATE_REQUEST:
@@ -132,8 +203,6 @@ export const productReviewCreateReducer = (state = {}, action) => {
             return state
     }
 }
-
-
 export const productTopRatedReducer = (state = {products:[]}, action) => { 
     switch (action.type) {
         case PRODUCT_TOP_REQUEST:

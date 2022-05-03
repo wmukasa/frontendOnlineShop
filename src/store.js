@@ -2,13 +2,18 @@ import { createStore,combineReducers,applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { 
-    productListReducer,
+     productListReducer,
      productDetailsReducer,
      productDeleteReducer,
      productCreateReducer,
      productUpdateReducer,
      productReviewCreateReducer,
      productTopRatedReducer,
+     categoryBlouseReducer,
+     categoryThrowReducer,
+     categoryAllReducer,
+    //  productListwithoutpageReducer,
+     
     } from './reducers/productReducers'
 import {
     orderCreateReducer,
@@ -29,11 +34,16 @@ import {
 //this is for registering our reducer
 const reducer = combineReducers({
     productList:productListReducer,
+    // productListwithoutpage:productListwithoutpageReducer,
+    categoryBlouse:categoryBlouseReducer,
+    categoryThrow:categoryThrowReducer,
+    categoryAll:categoryAllReducer,
     productDetails:productDetailsReducer,
     cart:cartReducer, //adding cartReducer to our store Redux
     productDelete:productDeleteReducer,
     productCreate:productCreateReducer,
     productReviewCreate:productReviewCreateReducer,
+   
     
     userLogin:userLoginReducer,
     userRegister:userRegisterReducer,
@@ -73,6 +83,7 @@ const initialState = {
     userLogin:{ userInfo:userInfoFromStorage},//this is an object
 
 }
+
 const middleware = [thunk]
 const store = createStore(reducer,initialState,
     composeWithDevTools(applyMiddleware(...middleware)))

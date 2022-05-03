@@ -17,7 +17,8 @@ function Header() {
     }
     return (
 		<header>
-            <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+            <Navbar style={{backgroundColor:"#2E8B57"}} variant="dark" expand="lg" collapseOnSelect>
+                {/* the color was bg="dark"  */}
                 <Container>
                     <LinkContainer to='/'>
                         <Navbar.Brand>JSMFASHIONS</Navbar.Brand>

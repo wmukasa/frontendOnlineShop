@@ -30,7 +30,7 @@ function SearchBox() {
                 <Col xs="auto">
                     <Button
                         type='submit'
-                        variant='outline-success'
+                        variant='outline-warning'
                         className='p-2'
                     >Submit
                     </Button>
